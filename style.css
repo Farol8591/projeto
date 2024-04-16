@@ -30,7 +30,7 @@
 body {
   background: var(--bg-url) no-repeat top center/cover;
   height: 100vh;
-  
+
 }
 body * {
   color: var(--text-color);
@@ -81,14 +81,18 @@ body * {
 
   position: absolute;
   top: 50%;
-  left: 0; 
+  left: 0;
   z-index: 1;
   transform: translateY(-50%);
+  animation: slide-out 0.9s;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.9s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -173,4 +177,21 @@ footer {
     --bg-url: url(./assets/bg-desktop-light.jpg);
   }
     
+}
+/*animation */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+@keyframes slide-out {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
 }
